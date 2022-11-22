@@ -19,10 +19,66 @@
   <body>
     <main>
       <div class="btu-calculator">
-        <div class="content"></div>
+        <div class="content">
+          <form id="form-btu">
+            <div class="input-wrapper">
+              <label for="meter">Quantos m2 o ambiente possui?</label>
+              <select name="meter" autofocus>
+                <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+              </select>
+            </div>
+            <div class="input-wrapper">
+              <label for="people">Quantas pessoas ocupam o local?</label>
+              <select name="people">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+            <div class="input-wrapper">
+              <label for="window">Quantas janelas o ambiente possui?</label>
+              <select name="window">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+            <div class="input-wrapper">
+              <label for="appliance">Quantos eletrodomésticos em funcionamento?</label>
+              <select name="appliance">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="15">10+</option>
+              </select>
+            </div>
+          </form>
+        </div>
 
-        <h2>Resultado:</h2>
-        <span class="result"></span>
+
+        <div class="result-content">
+          <h2>Resultado:</h2>
+          <span class="result">---</span>
+        </div>
       </div>
     </main>
 

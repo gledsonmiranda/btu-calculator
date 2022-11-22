@@ -6,4 +6,50 @@
 
 body, input, textarea, select, button {
   font: 400 16px 'Roboto', sans-serif;
+  color: #fff;
+  background-color: #3a3946;
+}
+
+.btu-calculator {
+  margin: 2rem 0;
+}
+
+form {
+  width: 100%;
+  max-width: 500px;
+  padding: 0 2rem;
+  margin: 0 auto 2rem;
+}
+
+.input-wrapper {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+select {
+  width: 100%;
+  display: block;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 3px;
+}
+
+select:focus {
+  outline-color: rgb(106, 6, 131);
+}
+
+.result-content {
+  text-align: center;
+  border-top: 1px solid #fff;
+  padding-top: 2rem;
+}
+
+.result-content h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
 }

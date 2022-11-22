@@ -1,21 +1,17 @@
 const input = {
-  meter: 10,
-  people: 3,
-  window: 4,
-  appliance: 6,
+  meter: 0,
+  people: 0,
+  window: 0,
+  appliance: 0,
 };
 
 var btuCalculatorData = {
   wattsReferenceNumber: 0.2929,
-  areas: [
-    { area: 10, residencial: 7000, comercial: 7000 },
-    { area: 12, residencial: 7000, comercial: 9000 },
-  ],
-  morningSun: [{ meter: 10, btu: 6000, watts: 1757.4 }],
-  allDaySun: [{ meter: 10, btu: 8000, watts: 2343.2 }],
-  people: { watts: 174.45 },
-  window: { watts: 581.5 },
-  appliance: { watts: 1.00018 },
+  morningSunReference: 600,
+  allDaySunReference: 800,
+  peopleWatts: 174.45,
+  windowWatts: 581.5,
+  applianceWatts: 1.00018,
   btuByReference: [
     {reference: 11000, value: 9000},
     {reference: 14000, value: 12000},
@@ -27,23 +23,23 @@ var btuCalculatorData = {
 
 var btuCalculator = {
   getMorningSunWatts: (meter) => {
-    return btuCalculatorData.morningSun.filter(
-      (meterItem) => meterItem.meter === meter
-    )[0].watts;
+    let btu = meter * btuCalculatorData.morningSunReference;
+
+    return btu * btuCalculatorData.wattsReferenceNumber;
   },
   getAllDaySunWatts: (meter) => {
-    return btuCalculatorData.allDaySun.filter(
-      (meterItem) => meterItem.meter === meter
-    )[0].watts;
+    let btu = meter * btuCalculatorData.allDaySunReference;
+
+    return btu * btuCalculatorData.wattsReferenceNumber;
   },
   getPeopleWatts: (quantity) => {
-    return btuCalculatorData.people.watts * quantity;
+    return btuCalculatorData.peopleWatts * quantity;
   },
   getWindowWatts: (quantity) => {
-    return btuCalculatorData.window.watts * quantity;
+    return btuCalculatorData.windowWatts * quantity;
   },
   getApplianceWatts: (quantity) => {
-    return btuCalculatorData.appliance.watts * quantity;
+    return btuCalculatorData.applianceWatts * quantity;
   },
   sumWatts: (data, allDay) => {
     let dataWatts = Object.assign({}, data);
@@ -62,14 +58,14 @@ var btuCalculator = {
     return Number((value / btuCalculatorData.wattsReferenceNumber).toFixed(0));
   },
   showResult: (result) => {
-    document.querySelector('.result').textContent = result;
+    document.querySelector('.result').innerHTML = result;
   },
   getBtuByReference: (referenceNumber) => {
     const btuReference = btuCalculatorData.btuByReference.filter(btu => referenceNumber <= btu.reference);
 
     return btuReference[0].value;
   },
-  init: () => {
+  init: (input) => {
     const morningSun = btuCalculator.getMorningSunWatts(input.meter);
     const allDaySun = btuCalculator.getAllDaySunWatts(input.meter);
     const people = btuCalculator.getPeopleWatts(input.people);
@@ -99,8 +95,27 @@ var btuCalculator = {
     console.log(dataWatts);
     console.log('resultWatts', resultWatts);
     console.log('resultBtus', resultBtus);
-    //btuCalculator.showResult('result');
+
+    btuCalculator.showResult(`
+     sol da manha: ${resultBtus.morningSun}<br>
+     sol dia todo: ${resultBtus.allDaySun}
+    `);
   },
 };
 
-btuCalculator.init();
+let formBtu = document.getElementById('form-btu');
+
+if (formBtu) {
+  formBtu.addEventListener('change', (e) => {
+    e.preventDefault();
+
+    const formData = {
+      meter: Number(document.querySelector('select[name="meter"').value),
+      people: Number(document.querySelector('select[name="people"').value),
+      window: Number(document.querySelector('select[name="window"').value),
+      appliance: Number(document.querySelector('select[name="appliance"').value),
+    }
+
+    btuCalculator.init(formData);
+  });
+}
