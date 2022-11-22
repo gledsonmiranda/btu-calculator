@@ -1,0 +1,13 @@
+Input:
+- metro quadrado do ambiente
+- quantas pessoas ocupam o local
+- quantas janelas
+- quantos eletrodomésticos
+
+Output W/h (watts hora):
+W/h do sol da manhã
+W/h do sol dia todo
+
+Output: BTUs:
+BTUs sol da manhã
+BTUs sol dia todo
