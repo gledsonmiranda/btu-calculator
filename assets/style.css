@@ -1,10 +1,18 @@
+:root {
+  --purple: rgb(145, 92, 158);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body, input, textarea, select, button {
+body,
+input,
+textarea,
+select,
+button {
   font: 400 16px 'Roboto', sans-serif;
   color: #fff;
   background-color: #3a3946;
@@ -16,7 +24,7 @@ body, input, textarea, select, button {
 
 form {
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
   padding: 0 2rem;
   margin: 0 auto 2rem;
 }
@@ -37,10 +45,13 @@ select {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   border-radius: 3px;
+  outline-width: 1px;
+  outline-style: solid;
 }
 
 select:focus {
-  outline-color: rgb(106, 6, 131);
+  outline-color: var(--purple);
+  border-color: var(--purple);
 }
 
 .result-content {
@@ -53,3 +64,27 @@ select:focus {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
 }
+
+.result-content .result {
+  max-width: 500px;
+  margin: 1rem auto;
+  text-align: left;
+  display: flex;
+  justify-content: space-around;
+}
+
+.result-content .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  display: block;
+  color: var(--purple);
+}
+
+.result-content p {
+  font-size: 0.875rem;
+}
+
+.result-content strong {
+  font-size: 1rem;
+}
+
