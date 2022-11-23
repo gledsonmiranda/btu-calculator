@@ -1,11 +1,4 @@
-const input = {
-  meter: 0,
-  people: 0,
-  window: 0,
-  appliance: 0,
-};
-
-var btuCalculatorData = {
+const btuCalculatorData = {
   wattsReferenceNumber: 0.2929,
   morningSunReference: 600,
   allDaySunReference: 800,
@@ -21,7 +14,7 @@ var btuCalculatorData = {
   ]
 };
 
-var btuCalculator = {
+const btuCalculator = {
   getMorningSunWatts: (meter) => {
     let btu = meter * btuCalculatorData.morningSunReference;
 
@@ -65,6 +58,16 @@ var btuCalculator = {
 
     return btuReference[0].value;
   },
+  loadFormData: () => {
+    const formData = {
+      meter: Number(document.querySelector('select[name="meter"').value),
+      people: Number(document.querySelector('select[name="people"').value),
+      window: Number(document.querySelector('select[name="window"').value),
+      appliance: Number(document.querySelector('select[name="appliance"').value),
+    }
+
+    btuCalculator.init(formData);
+  },
   init: (input) => {
     const morningSun = btuCalculator.getMorningSunWatts(input.meter);
     const allDaySun = btuCalculator.getAllDaySunWatts(input.meter);
@@ -92,13 +95,21 @@ var btuCalculator = {
       allDaySun: btuCalculator.getBtuByReference(resultWatts.allDaySunWatts)
     }
 
-    console.log(dataWatts);
+    console.log('dataWatts', dataWatts);
     console.log('resultWatts', resultWatts);
     console.log('resultBtus', resultBtus);
 
     btuCalculator.showResult(`
-     sol da manha: ${resultBtus.morningSun}<br>
-     sol dia todo: ${resultBtus.allDaySun}
+      <div class="item">
+        <span class="title">W/h:</span>
+        <p>sol da manhã: <strong>${resultWatts.morningSun}</strong></p>
+        <p>sol dia todo: <strong>${resultWatts.allDaySun}</strong></p>
+      </div>
+      <div class="item">
+        <span class="title">btus:</span>
+        <p>sol da manhã: <strong>${resultBtus.morningSun}</strong></p>
+        <p>sol dia todo: <strong>${resultBtus.allDaySun}</strong></p>
+      </div>
     `);
   },
 };
@@ -109,13 +120,8 @@ if (formBtu) {
   formBtu.addEventListener('change', (e) => {
     e.preventDefault();
 
-    const formData = {
-      meter: Number(document.querySelector('select[name="meter"').value),
-      people: Number(document.querySelector('select[name="people"').value),
-      window: Number(document.querySelector('select[name="window"').value),
-      appliance: Number(document.querySelector('select[name="appliance"').value),
-    }
-
-    btuCalculator.init(formData);
+    btuCalculator.loadFormData();
   });
+
+  btuCalculator.loadFormData();
 }

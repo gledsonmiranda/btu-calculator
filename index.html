@@ -1,87 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BTU calculator</title>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BTU calculator</title>
 
-    <link rel="stylesheet" href="assets/style.css" />
-  </head>
-  <body>
-    <main>
-      <div class="btu-calculator">
-        <div class="content">
-          <form id="form-btu">
-            <div class="input-wrapper">
-              <label for="meter">Quantos m2 o ambiente possui?</label>
-              <select name="meter" autofocus>
-                <option value="10">10</option>
-                <option value="12">12</option>
-                <option value="15">15</option>
-                <option value="20">20</option>
-                <option value="25">25</option>
-              </select>
-            </div>
-            <div class="input-wrapper">
-              <label for="people">Quantas pessoas ocupam o local?</label>
-              <select name="people">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-            </div>
-            <div class="input-wrapper">
-              <label for="window">Quantas janelas o ambiente possui?</label>
-              <select name="window">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-              </select>
-            </div>
-            <div class="input-wrapper">
-              <label for="appliance">Quantos eletrodomésticos em funcionamento?</label>
-              <select name="appliance">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="15">10+</option>
-              </select>
-            </div>
-          </form>
-        </div>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
 
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
 
-        <div class="result-content">
-          <h2>Resultado:</h2>
-          <span class="result">---</span>
-        </div>
+<body>
+  <main>
+    <div class="btu-calculator">
+      <div class="content">
+        <form id="form-btu">
+          <div class="input-wrapper">
+            <label for="meter">Quantos m2 o ambiente possui?</label>
+            <select name="meter">
+              <option value="10">10</option>
+              <option value="12">12</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+            </select>
+          </div>
+          <div class="input-wrapper">
+            <label for="people">Quantas pessoas ocupam o local?</label>
+            <select name="people">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          <div class="input-wrapper">
+            <label for="window">Quantas janelas o ambiente possui?</label>
+            <select name="window">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <div class="input-wrapper">
+            <label for="appliance">Quantos eletrodomésticos em funcionamento?</label>
+            <select name="appliance">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="15">10+</option>
+            </select>
+          </div>
+        </form>
       </div>
-    </main>
 
-    <script src="assets/btu-calculator.js" defer></script>
-  </body>
+
+      <div class="result-content">
+        <h2>Resultado:</h2>
+        <span class="result">---</span>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/btu-calculator.js" defer></script>
+</body>
+
 </html>
