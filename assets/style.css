@@ -68,6 +68,7 @@ select:focus {
 .result-content .result {
   max-width: 500px;
   margin: 1rem auto;
+  padding: 0 0.5rem;
   text-align: left;
   display: flex;
   justify-content: space-around;
@@ -82,9 +83,11 @@ select:focus {
 
 .result-content p {
   font-size: 0.875rem;
+  margin-bottom: 0.5rem;
 }
 
 .result-content strong {
   font-size: 1rem;
+  display: block;
 }
 

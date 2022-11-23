@@ -60,13 +60,13 @@ const btuCalculator = {
   },
   loadFormData: () => {
     const formData = {
-      meter: Number(document.querySelector('select[name="meter"').value),
-      people: Number(document.querySelector('select[name="people"').value),
-      window: Number(document.querySelector('select[name="window"').value),
-      appliance: Number(document.querySelector('select[name="appliance"').value),
+      meter: Number(document.querySelector('select[name="meter"]').value),
+      people: Number(document.querySelector('select[name="people"]').value),
+      window: Number(document.querySelector('select[name="window"]').value),
+      appliance: Number(document.querySelector('select[name="appliance"]').value),
     }
 
-    btuCalculator.init(formData);
+    return formData;
   },
   init: (input) => {
     const morningSun = btuCalculator.getMorningSunWatts(input.meter);
@@ -120,8 +120,10 @@ if (formBtu) {
   formBtu.addEventListener('change', (e) => {
     e.preventDefault();
 
-    btuCalculator.loadFormData();
+    let formData = btuCalculator.loadFormData();
+    btuCalculator.init(formData);
   });
 
-  btuCalculator.loadFormData();
+  let formData = btuCalculator.loadFormData();
+  btuCalculator.init(formData);
 }
